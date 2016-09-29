@@ -1,0 +1,56 @@
+@import "https://fonts.googleapis.com/css?family=Merriweather";
+@import "_partials/animation";
+@import "_partials/variable";
+@import "_brands/products";
+
+body {
+  .navbarWrapper {
+    border-bottom : 1px solid #eeeedd;
+    font-family   : $fontType;
+    text-align    : center;
+    max-height    : 45px;
+    padding       : 20px 0 30px 0;
+    border-radius : 4px;
+    margin        : 0 60px 0 60px;
+
+    .parent {
+      display  : inline-table;;
+      position : relative;
+      width    : 10%;
+      cursor   : pointer;
+
+      &:hover {
+        .childrenWrapper {
+          visibility : visible;
+        }
+        .linkParent {
+          animation : colorJungle 2s infinite;
+        }
+      }
+
+      .childrenWrapper {
+        list-style    : none;
+        visibility    : collapse;
+        background    : $innerMenuBg;
+        padding       : 5px;
+        border-radius : 4px;
+        border        : 1px solid #dddddd;
+      }
+    }
+
+    li a {
+      color   : $titleColor;
+      display : block;
+
+      &.linkParent {
+        &:first-letter {
+          color     : black;
+          font-size : 110%;
+        }
+      }
+    }
+  }
+}
+
+
+

@@ -1,0 +1,35 @@
+parameters:
+  app.menu:
+    site:
+      homePage:
+        name: home page
+        route: /
+      products:
+        name: products
+        route: /product
+        childrens:
+            - {route: tab2, name: hd}
+            - {route: tab3, name: motherboard}
+            - {route: tab4, name: memory}
+            - {route: tab5, name: proccesor}
+
+      contactUs:
+            name: contact us
+
+      aboutUs:
+            name: about us
+    cms:
+      return_to_site:
+              name: return to site
+              route: /
+      product:
+        name: product managment
+        route: /productManagment
+        childrens:
+            - {route: tab2, name: hd}
+            - {route: tab3, name: motherboard}
+            - {route: tab4, name: memory}
+            - {route: tab5, name: proccesor}
+
+      user:
+            name: user managment

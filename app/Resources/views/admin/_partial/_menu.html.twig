@@ -1,0 +1,17 @@
+{% if menus.menu.cms is defined %}
+    <ul class="navbarWrapper">
+        {% for menu in menus.menu.cms %}
+            <li class='parent text-uppercase'>
+            <a class="linkParent"{% if(menu['route'] is defined) %} href="{{ menu['route'] }}" {% endif %}>{{ menu['name'] }}</a>
+            {% if menu['childrens'] is defined %}
+                <ul class="childrenWrapper">
+                    {% for children  in menu['childrens'] %}
+                        <li class="children text-capitalize"><a
+                                    href="{{ children['route'] }}">{{ children['name'] }}</a></li>
+                    {% endfor %}
+                </ul>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}

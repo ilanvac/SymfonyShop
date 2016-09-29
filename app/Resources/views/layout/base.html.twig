@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+
+    {% stylesheets filter="cssrewrite,scssphp" output="assets/css/master.css"
+    "assets/vendor/bootstrap-sass/assets/stylesheets/_bootstrap.scss"
+    "assets/scss/font.scss"
+    "assets/scss/*.scss" %}
+
+    <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+</head>
+<body>
+
+{% block header %}
+    {% block navbar %}
+        {% include 'site/_partials/_menu.html.twig' %}
+    {% endblock %}
+{% endblock %}
+
+{% block main %}{% endblock %}
+{% block javascripts %}
+    {% javascripts
+    'assets/vendor/jquery/dist/jquery.js'
+    'assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js'
+    %}
+
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
+</body>
+</html>

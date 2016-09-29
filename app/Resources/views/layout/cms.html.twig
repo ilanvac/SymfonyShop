@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block headerTitle %}Document{% endblock %}</title>
+    {% stylesheets filter="cssrewrite,scssphp" output="/assets/css/cms.css"
+    "assets/vendor/bootstrap-sass/assets/stylesheets/_bootstrap.scss"
+    "assets/scss/font.scss"
+    "assets/scss/admin/main.scss" %}
+
+    <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+</head>
+<body>
+<header>
+    {% block navabar %}
+        {% include 'admin/_partial/_menu.html.twig' %}
+    {% endblock %}
+</header>
+
+{% block javascripts %}
+    {% javascripts
+    'assets/vendor/jquery/dist/jquery.js'
+    'assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}
+
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
+</body>
+</html>
